@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>GDG Contact Form</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="author" content="Oleh Zasadnyy">
+	<link href="images/favicon.ico" rel="icon" type="image/x-icon">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link href="css/style.css" rel="stylesheet">
+</head>	
+
+<body>
+	<div class="wrapper">
+		<div id="main" role="main">
+			<form id="contact-form" action="/" method="post">
+				<img id="logo" src="images/logo.png" alt="logo">
+				<h1>Contact form</h2>
+				<h3>Please fill this form if you want to get news from GDG</h3>
+				<div>
+					<label>
+						<span>Name*</span>
+						<input placeholder="e.g. Sergey" type="text" tabindex="1" required autofocus>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Surname*</span>
+						<input placeholder="e.g. Brin" type="text" tabindex="2" required>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Nickname</span>
+						<input placeholder="e.g. SuperBrin" type="text" tabindex="3">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Email*</span>
+						<input placeholder="anything@example.com" type="email" tabindex="4" required>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Telephone*</span>
+						<input placeholder="0930000042" type="tel" tabindex="5" required>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Google+</span>
+						<input placeholder="e.g. 1000000000042" type="text" tabindex="6">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Website</span>
+						<input placeholder="Begin with http://" type="url" tabindex="7">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>City*</span>
+						<input placeholder="e.g. Mountain View" type="text" tabindex="8" required>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Company</span>
+						<input placeholder="e.g. Google" type="text" tabindex="9">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Position</span>
+						<input placeholder="e.g. Cofounder" type="text" tabindex="10">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Experience level</span>
+						<select name="experience_level" tabindex="11">
+							<option value="newbie">Newbie</option>
+							<option value="elementary">Elementary</option>
+							<option value="intermediate" selected>Intermediate</option>
+							<option value="advanced">Advanced</option>
+							<option value="jedi">Jedi</option>
+						</select>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Experience desc</span>
+						<input placeholder="e.g. " type="text" tabindex="12">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Interests</span>
+						<input placeholder="e.g. Google, Android, Chrome" type="text" tabindex="13">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Events visited</span>
+						<input placeholder="e.g. IO Extended 2012, GDG DevFest, MapMaker" type="text" tabindex="14">
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>English knowledge</span>
+						<select name="english_knowledge" tabindex="15">
+							<option value="elementary">Elementary</option>
+							<option value="intermediate">Intermediate</option>
+							<option value="upper_intermediate" selected>Upper intermediate</option>
+							<option value="advanced">Advanced</option>
+							<option value="native">Native</option>
+						</select>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>T-Shirt size</span>
+						<select name="t_shirt_size" tabindex="16">
+							<option value="xs">XS</option>
+							<option value="s">S</option>
+							<option value="m" selected>M</option>
+							<option value="l">L</option>
+							<option value="xl">XL</option>
+							<option value="xxl">XXL</option>
+						</select>
+					</label>
+				</div>
+				<div>
+					<label>
+						<span>Gender</span>
+						<input type="radio" name="sex" id="male" value="male" tabindex="17">
+						<label for="male">Male</label>
+						<input type="radio" name="sex" id="female" value="female">
+						<label for="female">Female</label>
+					</label>
+				</div>
+				 <div>
+		            <label>
+		                <span>Comments</span>
+		                <textarea placeholder="Some comments" tabindex="18"></textarea>
+		            </label>
+		        </div>
+				<div>
+		            <button name="submit" type="submit" id="contact-submit" class="action red" tabindex="19"><span class="label red">Submit</span></button>
+		        </div>
+		        <p>*denotes a required field</p>
+			</form>
+		</div>
+	</div>		
+</body>
+</html>
+	
