@@ -10,7 +10,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href="css/style.css" rel="stylesheet">
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-        <script src="contact_form.js"></script>
+    <script src="contact_form.js"></script>
 
 </head>	
 
@@ -22,17 +22,19 @@
 		<pre>UseR:{{user | json}}</pre>
 				<img id="logo" src="images/logo.png" alt="logo">
 				<h1>Contact form</h2>
-				<h3>Please fill this form if you want to get news from GDG</h3>
+				<h3>Please fill this form if you want to get news from GDG
+					<span> (in English only)</span>
+				</h3>
 				<div>
 					<label>
 						<span>Name*</span>
-						<input placeholder="e.g. Sergey" type="text" tabindex="1" required autofocus ng-model="user.name">
+						<input placeholder="e.g. Sergey" type="text" tabindex="1" pattern="[A-Za-z]{2,16}" required autofocus ng-model="user.name">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Surname*</span>
-						<input placeholder="e.g. Brin" type="text" tabindex="2" required ng-model="user.surname">
+						<input placeholder="e.g. Brin" type="text" tabindex="2" pattern="[A-Za-z]{2,16}" required ng-model="user.surname">
 					</label>
 				</div>
 				<div>
@@ -97,8 +99,8 @@
 				</div>
 				<div>
 					<label>
-						<span>Experience desc</span>
-						<input placeholder="e.g. " type="text" tabindex="12" ng-model="user.expirience_desc">
+						<span>Experience description</span>
+						<textarea placeholder="e.g. Software developer particularly interested in Java technologies and Google applications. Worked in various countries: Ukraine, USA, Poland. Have great ability to work remotely, high mobility, sense of humor." tabindex="12" ng-model="user.expirience_desc"></textarea>
 					</label>
 				</div>
 				<div>
