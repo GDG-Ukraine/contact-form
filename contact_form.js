@@ -3,7 +3,8 @@ angular.module('gdgorgua',[])
   if ($window.localStorage) {
 	var user = $window.localStorage.getItem('user');
 	if (user) {
-		  $http.get('api/participant.json',{params:{uid:user}}).then(function(r){ $scope.user = r.data});
+	    $scope.user = JSON.parse(user);
+		  //$http.get('api/participant.json',{params:{uid:user}}).then(function(r){ $scope.user = r.data});
 	}
   }
 
@@ -20,14 +21,15 @@ angular.module('gdgorgua',[])
        		console.log(r);
        } else {
 	  $scope.showOk = true;
-	  var uid = r.data.uid;
-	  if ($window.localStorage) $window.localStorage.setItem('user', JSON.stringify(uid));
+	  //var uid = r.data.uid;
+	  if ($window.localStorage) $window.localStorage.setItem('user', JSON.stringify($scope.user));
        }
     } 
     var parts = $window.location.pathname.split('/');
     if (parts[0] == '') parts.shift();
     var event = parts[0];
 
-    $http.post('api/participant.save.json', {user: $scope.user, event: event}).then(savedCb, savedCb);
+    //$http.post('api/participant.save.json', {user: $scope.user, event: event}).then(savedCb, savedCb);
+    $http.post('http://gdg.org.ua:11010/api/participants/add', {user: $scope.user, event: event}).then(savedCb, savedCb);
   }
 });
