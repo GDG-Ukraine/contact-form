@@ -8,79 +8,83 @@
 	<link href="images/favicon.ico" rel="icon" type="image/x-icon">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href="css/style.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+        <script src="contact_form.js"></script>
 </head>	
 
 <body>
-	<div class="wrapper">
-		<div id="main" role="main">
-			<form id="contact-form" action="/" method="post">
+
+	<div class="wrapper" ng-app='gdgorgua'>
+		<div id="main" role="main" ng-controller='contactForm'>
+			<form id="contact-form" name="contactForm">
+		<pre>UseR:{{user | json}}</pre>
 				<img id="logo" src="images/logo.png" alt="logo">
 				<h1>Contact form</h2>
 				<h3>Please fill this form if you want to get news from GDG</h3>
 				<div>
 					<label>
 						<span>Name*</span>
-						<input placeholder="e.g. Sergey" type="text" tabindex="1" required autofocus>
+						<input placeholder="e.g. Sergey" type="text" tabindex="1" required autofocus ng-model="user.name">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Surname*</span>
-						<input placeholder="e.g. Brin" type="text" tabindex="2" required>
+						<input placeholder="e.g. Brin" type="text" tabindex="2" required ng-model="user.surname">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Nickname</span>
-						<input placeholder="e.g. SuperBrin" type="text" tabindex="3">
+						<input placeholder="e.g. SuperBrin" type="text" tabindex="3" ng-model="user.nickname">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Email*</span>
-						<input placeholder="anything@example.com" type="email" tabindex="4" required>
+						<input placeholder="anything@example.com" type="email" tabindex="4" required ng-model="user.email">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Telephone*</span>
-						<input placeholder="0930000042" type="tel" tabindex="5" required>
+						<input placeholder="0930000042" type="tel" tabindex="5" required ng-model="user.phone">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Google+</span>
-						<input placeholder="e.g. 1000000000042" type="text" tabindex="6">
+						<input placeholder="e.g. 1000000000042" type="text" tabindex="6" ng-model="user.gplus">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Website</span>
-						<input placeholder="Begin with http://" type="url" tabindex="7">
+						<input placeholder="Begin with http://" type="url" tabindex="7" ng-model="user.www">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>City*</span>
-						<input placeholder="e.g. Mountain View" type="text" tabindex="8" required>
+						<input placeholder="e.g. Mountain View" type="text" tabindex="8" required ng-model="user.hometown">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Company</span>
-						<input placeholder="e.g. Google" type="text" tabindex="9">
+						<input placeholder="e.g. Google" type="text" tabindex="9" ng-model="user.company">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Position</span>
-						<input placeholder="e.g. Cofounder" type="text" tabindex="10">
+						<input placeholder="e.g. Cofounder" type="text" tabindex="10" ng-model="user.position">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Experience level</span>
-						<select name="experience_level" tabindex="11">
+						<select name="experience_level" tabindex="11" ng-model="user.expirience_level">
 							<option value="newbie">Newbie</option>
 							<option value="elementary">Elementary</option>
 							<option value="intermediate" selected>Intermediate</option>
@@ -92,25 +96,25 @@
 				<div>
 					<label>
 						<span>Experience desc</span>
-						<input placeholder="e.g. " type="text" tabindex="12">
+						<input placeholder="e.g. " type="text" tabindex="12" ng-model="user.expirience_desc">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Interests</span>
-						<input placeholder="e.g. Google, Android, Chrome" type="text" tabindex="13">
+						<input placeholder="e.g. Google, Android, Chrome" type="text" tabindex="13" ng-model="user.interests">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>Events visited</span>
-						<input placeholder="e.g. IO Extended 2012, GDG DevFest, MapMaker" type="text" tabindex="14">
+						<input placeholder="e.g. IO Extended 2012, GDG DevFest, MapMaker" type="text" tabindex="14" ng-model="user.events_visited">
 					</label>
 				</div>
 				<div>
 					<label>
 						<span>English knowledge</span>
-						<select name="english_knowledge" tabindex="15">
+						<select name="english_knowledge" tabindex="15" ng-model="user.english_knowledge">
 							<option value="elementary">Elementary</option>
 							<option value="intermediate">Intermediate</option>
 							<option value="upper_intermediate" selected>Upper intermediate</option>
@@ -122,7 +126,7 @@
 				<div>
 					<label>
 						<span>T-Shirt size</span>
-						<select name="t_shirt_size" tabindex="16">
+						<select name="t_shirt_size" tabindex="16" ng-model="user.t_short_size">
 							<option value="xs">XS</option>
 							<option value="s">S</option>
 							<option value="m" selected>M</option>
@@ -135,7 +139,7 @@
 				<div>
 					<label>
 						<span>Gender</span>
-						<input type="radio" name="sex" id="male" value="male" tabindex="17">
+						<input type="radio" name="sex" id="male" value="male" tabindex="17" ng-model="user.gender">
 						<label for="male">Male</label>
 						<input type="radio" name="sex" id="female" value="female">
 						<label for="female">Female</label>
@@ -144,13 +148,20 @@
 				 <div>
 		            <label>
 		                <span>Comments</span>
-		                <textarea placeholder="Some comments" tabindex="18"></textarea>
+		                <textarea placeholder="Some comments" tabindex="18" ng-model="user.additional_info"></textarea>
 		            </label>
 		        </div>
+			<div ng-show="showOk" class="alert alert-success">
+				Your application was saved. See you on event!
+			</div>
+			<div ng-show="showError" class="alert alert-error">
+				Oops! Something wrong happen while saving your application!
+			</div>
+
 				<div>
-		            <button name="submit" type="submit" id="contact-submit" class="action red" tabindex="19"><span class="label red">Submit</span></button>
+		            <button name="submit" type="submit" id="contact-submit" class="action red" tabindex="19"  ng-class="{disabled: !contactForm.$valid}" ng-click="submit()"><span class="label red">Submit</span></button>
 		        </div>
-		        <p>*denotes a required field</p>
+		        <p>*denotes a required field</p><pre>{{contactForm.$valid | json }}
 			</form>
 		</div>
 	</div>		
