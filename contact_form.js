@@ -1,5 +1,5 @@
 angular.module('gdgorgua',[])
-.controller('contactForm', function($scope,$http, $window) {
+.controller('contactForm', function($scope,$http, $window, $location) {
   if ($window.localStorage) {
 	var user = $window.localStorage.getItem('user');
 	if (user) {
@@ -24,6 +24,10 @@ angular.module('gdgorgua',[])
 	  if ($window.localStorage) $window.localStorage.setItem('user', JSON.stringify(uid));
        }
     } 
-    $http.post('api/participant.save.json', $scope.user).then(savedCb, savedCb);
+    var parts = $window.location.pathname.split('/');
+    if (parts[0] == '') parts.shift();
+    var event = parts[0];
+
+    $http.post('api/participant.save.json', {user: $scope.user, event: event}).then(savedCb, savedCb);
   }
 });

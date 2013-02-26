@@ -11,7 +11,17 @@ var mimeTypes = {
     "css": "text/css"};
 
 http.createServer(function(req, res) {
-  var uri = url.parse(req.url).pathname;
+  var rurl = req.url;
+  if (rurl.indexOf("contact_form.html")>-1) {
+	// ignore event part
+  	var parts = rurl.split("/");
+	if (parts[0]=='') parts.shift();
+	parts.shift();
+	rurl = parts.join("/");
+  }
+
+  var uri = url.parse(rurl).pathname;
+  
   var filename = path.join(process.cwd(), unescape(uri));
   var stats;
 
@@ -34,7 +44,8 @@ http.createServer(function(req, res) {
     fileStream.pipe(res);
   } else if (stats.isDirectory()) {
     // path exists, is a directory
-    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('Please go to <a href="/123someeventId/contact_form.html">registration form</a>');
     res.write('Index of '+uri+'\n');
     res.write('TODO, show index?\n');
     res.end();
